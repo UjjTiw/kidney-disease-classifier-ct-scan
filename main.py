@@ -2,7 +2,6 @@ from DiseaseClassifier import logger
 from DiseaseClassifier.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline
 from DiseaseClassifier.pipeline.stage_02_prepare_base_model import PrepareBaseModelTrainingPipeline
 from DiseaseClassifier.pipeline.stage_03_model_training import ModelTrainingPipeline
-from DiseaseClassifier.pipeline.stage_04_model_evaluation import EvaluationPipleline
 
 
 
@@ -37,6 +36,7 @@ except Exception as e:
         logger.exception(e)
         raise e
 
+from DiseaseClassifier.pipeline.stage_04_model_evaluation import EvaluationPipleline
 STAGE_NAME = 'Evaluation Stage'
 try:
         logger.info(f"********************************")

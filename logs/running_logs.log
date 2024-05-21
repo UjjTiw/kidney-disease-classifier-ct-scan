@@ -324,3 +324,39 @@ X==================X]
 [2024-04-16 11:48:53,276: INFO: common: yaml file: params.yaml loaded successfully]
 [2024-04-16 11:48:53,278: INFO: common: Created directory at : artifacts]
 [2024-04-16 11:56:56,062: INFO: common: json files saved at: scores.json]
+[2024-04-16 12:04:58,394: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-04-16 12:04:58,400: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-04-16 12:04:58,401: INFO: common: Created directory at : artifacts]
+[2024-04-16 12:11:03,172: INFO: common: json files saved at: scores.json]
+[2024-04-17 11:53:50,549: INFO: main: >>>>>> stage Data Ingestion Stage started <<<<<<]
+[2024-04-17 11:53:50,551: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-04-17 11:53:50,551: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-04-17 11:53:50,551: INFO: common: Created directory at : artifacts]
+[2024-04-17 11:53:50,552: INFO: common: Created directory at : artifacts/data_ingestion]
+[2024-04-17 11:53:50,552: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1RjY6ZECBmV9cLQHTLOh8VpOHd2cQkEeU/view?usp=drive_link into file artifacts/data_ingestion/data.zip]
+[2024-04-17 11:57:39,734: INFO: data_ingestion: Dowmloaded data from https://drive.google.com/file/d/1RjY6ZECBmV9cLQHTLOh8VpOHd2cQkEeU/view?usp=drive_link into file artifacts/data_ingestion/data.zip]
+[2024-04-17 11:57:51,131: INFO: main: >>>>>> stage Data Ingestion Stage completed <<<<<<
+
+X================X]
+[2024-04-17 11:57:51,132: INFO: main: ****************************]
+[2024-04-17 11:57:51,132: INFO: main: >>>>>>>>>> stage Prepare base model started <<<<<<<<<<<<<<<<]
+[2024-04-17 11:57:51,138: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-04-17 11:57:51,140: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-04-17 11:57:51,140: INFO: common: Created directory at : artifacts]
+[2024-04-17 11:57:51,140: INFO: common: Created directory at : artifacts/prepare_base_model]
+[2024-04-17 11:57:54,098: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2024-04-17 11:57:54,891: ERROR: main: `keras.optimizers.legacy` is not supported in Keras 3. When using `tf.keras`, to continue using a `tf.keras.optimizers.legacy` optimizer, you can install the `tf_keras` package (Keras 2) and set the environment variable `TF_USE_LEGACY_KERAS=True` to configure TensorFlow to use `tf_keras` when accessing `tf.keras`.]
+Traceback (most recent call last):
+  File "/Users/ujjwaltiwari/Desktop/projects/kidney-disease-classifier-ct-scan/main.py", line 22, in <module>
+    prepare_base_model.main()
+  File "/Users/ujjwaltiwari/Desktop/projects/kidney-disease-classifier-ct-scan/src/DiseaseClassifier/pipeline/stage_02_prepare_base_model.py", line 17, in main
+    prepare_base_model.update_base_model()
+  File "/Users/ujjwaltiwari/Desktop/projects/kidney-disease-classifier-ct-scan/src/DiseaseClassifier/components/prepare_base_model.py", line 53, in update_base_model
+    self.full_model = self.prepare_full_model(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ujjwaltiwari/Desktop/projects/kidney-disease-classifier-ct-scan/src/DiseaseClassifier/components/prepare_base_model.py", line 43, in prepare_full_model
+    optimizer = tf.keras.optimizers.legacy.Adam(learning_rate=Learning_rate),
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/keras/src/optimizers/__init__.py", line 115, in __init__
+    raise ImportError(
+ImportError: `keras.optimizers.legacy` is not supported in Keras 3. When using `tf.keras`, to continue using a `tf.keras.optimizers.legacy` optimizer, you can install the `tf_keras` package (Keras 2) and set the environment variable `TF_USE_LEGACY_KERAS=True` to configure TensorFlow to use `tf_keras` when accessing `tf.keras`.
